@@ -12,9 +12,7 @@ The main issue was with KDE Plasma, which only allowed setting a cursor size of 
 ## What tasks do these scripts perform?
 Here, I’ll briefly describe the scripts. More detailed explanations and usage examples are provided below.
 
-<video controls>
-  <source src="./demo.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/b320720b-553a-49b1-945c-e0fa10611a6f
 
 ### config.sh
 This is not a script and does not need to be executed. It contains the configuration settings for the scripts listed below.
