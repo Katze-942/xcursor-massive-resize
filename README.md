@@ -57,7 +57,7 @@ Cleans up the `PATH_TO_ADAPT_XCURSOR` and `PATH_TO_XCURSOR` folders, where tempo
 - `CONVERTING`: set this value to 1 if you need to call `cursor_converting.sh` beforehand.
 - `INSTALL_CURSOR_PACK`: set this value to 1 if the cursors should be installed in `PATH_TO_INSTALL`.
 - `REINSTALL_PACK`: set this value to 1 if you are experimenting. This allows you to easily reinstall the cursor pack you previously built by simply deleting the previously generated pack.
-- `PACK_NAME`: the name of the cursor pack (no spaces). The folder containing the cursors will use this name.
+- `PACK_NAME`: the name of the cursor pack. The folder containing the cursors will use this name.
 - `PACK_DESCRIPTION`: the description of your cursor pack.
 - `CURSOR_ACTIONS`: by default, this variable is configured to work with cursors created by [\_BLZ\_](https://ko-fi.com/blz_404/shop) (the author). The file name is on the left, and the cursor actions it corresponds to are listed on the right. For example, the "Link" file will be triggered on all links, such as pointer, hand1, and so on.
 

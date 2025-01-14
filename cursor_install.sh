@@ -8,6 +8,8 @@
 # There is a config file below to configure the correspondences between the cursor file and the file in the theme itself.
 
 source ./config.sh
+PACK_FOLDER=$(echo $PACK_NAME | sed 's/ /_/g');
+
 
 # Starting the cursor conversion process.
 if [ "$CONVERTING" -eq 1 ]; then
@@ -25,12 +27,12 @@ if [ "$INSTALL_CURSOR_PACK" -eq 1 ]; then
     fi
 
     # We check if there is a folder with the name of the theme in our directory.
-    if [[ -d $PACK_NAME ]]; then
+    if [[ -d "$PACK_FOLDER" ]]; then
         if [ "$REINSTALL_PACK" -eq 1 ]; then
-            echo "Deleting the \"$PACK_NAME\" theme...";
-            rm -rf $PACK_NAME;
+            echo "Deleting the \"$PACK_FOLDER\" theme...";
+            rm -rf "$PACK_FOLDER";
         else
-            echo -e "${D_RED}Error: the \"$PACK_NAME\" theme already exists in \"$PATH_TO_INSTALL\"!${D_CANCEL}" 1>&2;
+            echo -e "${D_RED}Error: the \"$PACK_FOLDER\" theme already exists in \"$PATH_TO_INSTALL\"!${D_CANCEL}" 1>&2;
             exit 1;
         fi
     fi
@@ -47,9 +49,9 @@ if ! [[ -d "$PATH_TO_TEMPLATE/cursors" ]]; then
 fi
 
 echo "Copying the folder with the template..."
-cp -r $PATH_TO_TEMPLATE $PACK_NAME;
+cp -r "$PATH_TO_TEMPLATE" "$PACK_FOLDER";
 
-cd "$PACK_NAME" || exit;
+cd "$PACK_FOLDER" || exit;
 
 rm index.theme cursor.theme 2>/dev/null
 
@@ -101,18 +103,18 @@ cd ../../
 
 if [ "$INSTALL_CURSOR_PACK" -eq 1 ]; then
     # We check if there is a folder with the name of the theme in the system directory.
-    if [[ -d "$PATH_TO_INSTALL/$PACK_NAME" ]]; then
+    if [[ -d "$PATH_TO_INSTALL/$PACK_FOLDER" ]]; then
         if [ "$REINSTALL_PACK" -eq 1 ]; then
-            echo "Removing the \"$PACK_NAME\" package from \"$PATH_TO_INSTALL\"...";
-            rm -rf "${PATH_TO_INSTALL:?}/${PACK_NAME}";
+            echo "Removing the \"$PACK_FOLDER\" package from \"$PATH_TO_INSTALL\"...";
+            rm -rf "${PATH_TO_INSTALL:?}/${PACK_FOLDER}";
         else
-            echo -e "${D_RED}Error: the \"$PATH_TO_INSTALL/$PACK_NAME\" theme already exists in \"$PATH_TO_INSTALL\"!${D_CANCEL}" 1>&2;
+            echo -e "${D_RED}Error: the \"$PATH_TO_INSTALL/$PACK_FOLDER\" theme already exists in \"$PATH_TO_INSTALL\"!${D_CANCEL}" 1>&2;
             exit;
         fi
     fi
 
     echo "Copying the theme to $PATH_TO_INSTALL...";
-    cp -r "$PACK_NAME" "$PATH_TO_INSTALL";
+    cp -r "$PACK_FOLDER" "$PATH_TO_INSTALL";
     echo -e "${D_GREEN}Copying is completed!${D_CANCEL}"
 fi
 

@@ -39,9 +39,9 @@ INSTALL_CURSOR_PACK=1
 # With a value of 1, the script will be able to erase the finished package ($PACK_NAME) and install it again.
 REINSTALL_PACK=1
 
-# The name of the package and its description. THERE SHOULD BE NO SPACES IN THE NAME!!
-PACK_NAME="PACK-NAME"
-PACK_DESCRIPTION="Author BZL"
+# The name of the package and its description.
+PACK_NAME="PACK NAME"
+PACK_DESCRIPTION="Description"
 
 # Establish a correspondence between the cursor name and its "actions".
 # By default, the file names here are configured for cursors from the author of BLZ.
@@ -74,6 +74,3 @@ CURSOR_ACTIONS=(
 D_GREEN="\e[92m"
 D_RED="\e[31m"
 D_CANCEL="\e[0m"
-
-# If you didn't listen to my advice NOT to put spaces in the pack name, then this line will replace spaces with dashes.
-PACK_NAME=$(echo $PACK_NAME | sed 's/ /-/g');

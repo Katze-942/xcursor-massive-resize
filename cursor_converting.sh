@@ -37,8 +37,8 @@ if [ "$CONVERT_WINDOWS_CURSOR" -eq 1 ]; then
     echo "Starting the conversion of ANI/CUR cursors...";
     if [ -d "$PATH_TO_ANI_CUR_CURSORS" ]; then
         check_command "win2xcur";
-        win2xcur "$PATH_TO_ANI_CUR_CURSORS"/*ani -o "$PATH_TO_XCURSOR/";
-        win2xcur "$PATH_TO_ANI_CUR_CURSORS"/*cur -o "$PATH_TO_XCURSOR/";
+        win2xcur "$PATH_TO_ANI_CUR_CURSORS"/*.ani -o "$PATH_TO_XCURSOR/";
+        win2xcur "$PATH_TO_ANI_CUR_CURSORS"/*.cur -o "$PATH_TO_XCURSOR/";
     else
         echo -e "${D_RED}Error: The \"$PATH_TO_ANI_CUR_CURSORS\" directory was not found.${D_CANCEL}" 1>&2;
         exit 1;
