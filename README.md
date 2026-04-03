@@ -36,7 +36,7 @@ Cleans up the `PATH_TO_ADAPT_XCURSOR` and `PATH_TO_XCURSOR` folders, where tempo
 ## Dependencies
 - [bc](https://git.gavinhoward.com/gavin/bc) (required for mathematical calculations)
 - [win2xcur](https://github.com/quantum5/win2xcur) (optional, used for converting cursors from the Windows format)
-- [xcur2png](https://github.com/eworm-de/xcur2png) (required for unpacking XCursor files)
+- [Python 3](https://www.python.org/) + [Pillow](https://pillow.readthedocs.io/) (required for unpacking XCursor files; replaces xcur2png which has a [white-pixels-become-black bug](https://github.com/eworm-de/xcur2png/issues/6)). Install: `pip install Pillow`
 - [ImageMagick](https://imagemagick.org/script/download.php) (required for converting images to different resolutions)
 - xcursorgen (required for XCursor packaging)
 

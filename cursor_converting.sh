@@ -48,7 +48,11 @@ else
     echo "The conversion of ANI/CUR cursors is skipped...";
 fi
 
-check_command "xcur2png";
+# Verify Python3 and Pillow are available (needed by xcur2png.py)
+if ! python3 -c "from PIL import Image" &> /dev/null; then
+    echo -e "${D_RED}Error: Python3 with Pillow is required but not found!${D_CANCEL}" 1>&2;
+    exit 1
+fi
 check_command "magick";
 check_command "xcursorgen";
 
@@ -60,7 +64,7 @@ find "$PATH_TO_XCURSOR" -maxdepth 1 -type f -print0 | while IFS= read -r -d '' f
 
     # Converting an animated (or regular) XCursor file to PNG images and a .conf file.
     echo "Extracting data from \"$file_name\"...";
-    xcur2png -q "$PATH_TO_XCURSOR/$file_name" -d "$PATH_TO_XCURSOR/post-processing/";
+    python3 "$(dirname "$0")/xcur2png.py" -q "$PATH_TO_XCURSOR/$file_name" -d "$PATH_TO_XCURSOR/post-processing/";
 
     # Moving all the config files to the desired directory.
     mv "$file_name.conf" "$PATH_TO_XCURSOR/post-processing/";

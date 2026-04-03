@@ -35,7 +35,7 @@ https://github.com/user-attachments/assets/b320720b-553a-49b1-945c-e0fa10611a6f
 ## Зависимости
 - [bc](https://git.gavinhoward.com/gavin/bc) (обязательно, требуется для математических вычислений)
 - [win2xcur](https://github.com/quantum5/win2xcur) (опционально, требуется для конвертации курсоров из Windows формата)
-- [xcur2png](https://github.com/eworm-de/xcur2png) (обязательно, требуется для распаковки XCursor)
+- [Python 3](https://www.python.org/) + [Pillow](https://pillow.readthedocs.io/) (обязательно, требуется для распаковки XCursor; заменяет xcur2png, в котором есть [баг с превращением белых пикселей в чёрные](https://github.com/eworm-de/xcur2png/issues/6)). Установка: `pip install Pillow`
 - [ImageMagick](https://imagemagick.org/script/download.php) (обязательно, требуется для преобразования изображений в разное разрешение)
 - xcursorgen (обязательно, требуется для упаковки XCursor)
 
