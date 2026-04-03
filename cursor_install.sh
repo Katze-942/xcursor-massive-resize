@@ -51,6 +51,8 @@ fi
 echo "Copying the folder with the template..."
 cp -r "$PATH_TO_TEMPLATE" "$PACK_FOLDER";
 
+PATH_TO_ADAPT_XCURSOR="$(realpath "$PATH_TO_ADAPT_XCURSOR")"
+
 cd "$PACK_FOLDER" || exit;
 
 rm index.theme cursor.theme 2>/dev/null
@@ -78,13 +80,13 @@ for Name in "${!CURSOR_ACTIONS[@]}"; do
     fi
 
     # We check if the cursor file exists.
-    if ! [[ -f "../../$PATH_TO_ADAPT_XCURSOR/$Name" ]]; then
+    if ! [[ -f "$PATH_TO_ADAPT_XCURSOR/$Name" ]]; then
         echo -e "${D_YELLOW}The cursor \"$PATH_TO_ADAPT_XCURSOR/$Name\" was not found. Skipping...${D_CANCEL}"
         continue
     fi
 
     # Copy this cursor to the folder with the theme.
-    cp -r "../../$PATH_TO_ADAPT_XCURSOR/$Name" .
+    cp -r "$PATH_TO_ADAPT_XCURSOR/$Name" .
 
     # Turning the key value into an array.
     IFS=' ' read -ra icons <<< "${CURSOR_ACTIONS[$Name]}";
